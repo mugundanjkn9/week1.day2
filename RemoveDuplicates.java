@@ -14,28 +14,33 @@ public class RemoveDuplicates {
 	 * f) if the count > 1 then replace the word as "" 
 	 * g) Displaying the String without duplicate words	
 	 */
+	
+	public static String getRemoveDuplicates(String text){
+		
+		int count= 0;
+		String[] words = text.split(" ");
+		for(int i=0;i<words.length;i++) {
+			for(int j=0;j<words.length;j++) {
+				if(words[i].equals(words[j])) {
+					count++;
+				}
+			}
+		if(count > 1) {
+			 text = text.replace(words[i], "");
+			}
+		count = 0;
+		}
+		return text;
+	}
+	
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		
-		
-		String text= "We learn java basics as part of java sessions in java week1";
-		String result="";
-		String split[]=text.split(" ");
-		System.out.println("The given String is : "+text);
-		for(int i=0;i<split.length;i++) {
-			for(int j=i+1;j<split.length;j++) {
-				if(split[i].equals(split[j])) {
-					split[j]="";
-				}				
-			}
-		}
-		for(int i=0;i<split.length;i++) {
-			if(split[i]!="") {
-			result=result+split[i]+" ";	
-		}}
-		System.out.print("After duplicate removed string is : "+result);
-
+ 		String input1= "We learn java basics as part of java sessions in java week1";
+ 		System.out.println("The given String is : "+input1);
+ 		System.out.print("After duplicate removed string is :"+getRemoveDuplicates(input1));
+ 		
 	}
 
 }
